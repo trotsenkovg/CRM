@@ -3,9 +3,8 @@
 <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <a href="{{ route('login') }}">
-            <x-logo class="w-auto h-16 mx-auto text-amber-600"></x-logo>
+            <x-login-logo class="w-auto h-16 mx-auto text-indigo-600"></x-login-logo>
         </a>
-        <p class="text-amber-600 text-center bg-white shadow p-5 font-semibold text-xl">Sign in to continue to CRM</p>
         <hr>
     </div>
 
@@ -45,14 +44,14 @@
                 <div class="flex items-center justify-between mt-6">
                     <div class="flex items-center">
                         <input wire:model.lazy="remember" id="remember" type="checkbox"
-                               class="form-checkbox w-4 h-4 text-amber-600 transition duration-150 ease-in-out"/>
+                               class="form-checkbox w-4 h-4 text-indigo-600 transition duration-150 ease-in-out"/>
                         <label for="remember" class="block ms-2 text-sm text-gray-900 leading-5">
                             Remember
                         </label>
                     </div>
 
                     {{--<div class="text-sm leading-5">
-                        <a href="{{ route('password.request') }}" class="font-medium text-amber-600 hover:text-amber-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                        <a href="{{ route('password.request') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                             Forgot your password?
                         </a>
                     </div>--}}
@@ -61,7 +60,7 @@
                 <div class="mt-6">
                     <span class="block w-full rounded-md shadow-sm">
                         <button type="submit"
-                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-amber-600 border border-transparent rounded-md hover:bg-amber-500 focus:outline-none focus:border-amber-700 focus:ring-amber active:bg-amber-700 transition duration-150 ease-in-out">
+                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                             {{__('auth.login')}}
                         </button>
                     </span>

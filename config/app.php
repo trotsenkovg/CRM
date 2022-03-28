@@ -91,11 +91,7 @@ return [
     |
     */
 
-    'available_locales' => [
-        'English' => 'en',
-        'Russian' => 'ru',
-        'Hebrew' => 'he',
-    ],
+    'available_locales' => ['en', 'he', 'ru'],
 
     /*
     |--------------------------------------------------------------------------

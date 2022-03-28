@@ -1,14 +1,10 @@
 <?php
 
-use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Language;
 use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Auth\Passwords\Confirm;
-use App\Http\Livewire\Auth\Passwords\Email;
-use App\Http\Livewire\Auth\Passwords\Reset;
-use App\Http\Livewire\Auth\Register;
-use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\SiteUsers;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -28,33 +24,33 @@ Route::middleware('guest')->group(function () {
         ->name('login');
 });
 
-/*Route::get('/{locale}', function ($locale) {
-    App::setLocale($locale);
-    return redirect()->;
-});*/
-
-/*Route::get('password/reset', Email::class)
-    ->name('password.request');*/
-
-/*Route::get('password/reset/{token}', Reset::class)
-    ->name('password.reset');*/
-
 Route::middleware('auth')->group(function () {
-    Route::get('email/verify', Verify::class)
-        ->middleware('throttle:6,1')
-        ->name('verification.notice');
+    /**
+     * Dashboard
+     */
+    Route::get('/', Dashboard::class)
+        ->name('dashboard');
+    Route::get('/dashboard', Dashboard::class)
+        ->name('dashboard');
 
-    Route::get('password/confirm', Confirm::class)
-        ->name('password.confirm');
-});
+    /**
+     * Users
+     */
+    Route::get('/siteUsers', SiteUsers::class)
+        ->name('siteUsers');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/', Dashboard::class)->name('dashboard');
-
-    /*Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
-        ->middleware('signed')
-        ->name('verification.verify');*/
-
-    Route::post('logout', LogoutController::class)
+    Route::get('logout', LogoutController::class)
         ->name('logout');
 });
+
+Route::get('/setLanguage/{locale}', function ($locale) {
+    if (!in_array($locale, config('app.available_locales'))) {
+        abort(404);
+    }
+
+    App::setLocale($locale);
+    // Session
+    session()->put('locale', $locale);
+
+    return redirect()->back();
+})->name('setLanguage');

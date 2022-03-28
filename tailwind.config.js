@@ -1,3 +1,4 @@
+const custom = require('tailwindcss/plugin');
 
 module.exports = {
     theme: {
@@ -63,5 +64,10 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms'),
         require('tailwindcss-rtl'),
+        custom(({ addVariant, e }) => {
+            addVariant('sidebar-expanded', ({ modifySelectors, separator }) => {
+                modifySelectors(({ className }) => `.sidebar-expanded .${e(`sidebar-expanded${separator}${className}`)}`);
+            });
+        }),
     ],
 };
