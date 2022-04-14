@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, Notifiable;
 
+    protected $db = 'mongodb';
     protected $connection   = 'mongodb';
     protected $table        = 'users';
 
@@ -36,12 +35,15 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $appends = ['redemptions_count'];
+
+    public function redemptions()
+    {
+        return $this->hasMany(CouponRedemption::class, 'redempted_by', '_id');
+    }
+
+    public function getRedemptionsCountAttribute()
+    {
+        return $this->redemptions->count();
+    }
 }

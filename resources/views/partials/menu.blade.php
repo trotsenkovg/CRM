@@ -109,7 +109,7 @@
                                     <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate ps-2"
                                        :class="page === 'settings-account' && '!text-indigo-500'" href="settings.html">
                                         <span
-                                            class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Provider</span>
+                                            class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Provider users</span>
                                     </a>
                                 </li>
                                 <li class="mb-1 last:mb-0 cursor-pointer">
