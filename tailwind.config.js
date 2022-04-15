@@ -1,6 +1,7 @@
 const custom = require('tailwindcss/plugin');
 
 module.exports = {
+    darkMode: 'class',
     theme: {
         extend: {
             boxShadow: {
