@@ -2,27 +2,38 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
+use App\Models\UsersRedemptions;
 use Jenssegers\Mongodb\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\User;
+use Rappasoft\LaravelLivewireTables\Views\Filter;
+use function __;
 
-class UserTable extends DataTableComponent
+class SiteUsersTable extends DataTableComponent
 {
-
     public bool $dumpFilters = false;
 
     public string $primaryKey           = '_id';
     protected string $pageName          = 'site-users';
     protected string $tableName         = 'site-users';
     public bool $singleColumnSorting    = true;
-    public string $defaultSortColumn    = 'redemption_count';
-    public string $defaultSortDirection = 'desc';
 
+    public function filters(): array
+    {
+        return [
+            'active' => Filter::make('Status')
+                ->select([
+                    '' => __('users.any'),
+                    'active' => __('users.active'),
+                    'notActive' => __('users.notActive'),
+                ]),
+        ];
+    }
     public function columns(): array
     {
         return [
-            Column::make("Client ID", "_id")
+            Column::make("Client ID", "clientID")
                 ->format(function ($value) {
                     return substr($value, -7);
                 })
@@ -42,18 +53,18 @@ class UserTable extends DataTableComponent
                 })
                 ->sortable(),
 
-            Column::make("Phone", "telephone")
+            Column::make("Phone", "phone")
                 ->searchable(function (Builder $query, $searchTerm) {
                     $query->orWhere('telephone', 'LIKE', "%$searchTerm%");
                 })
                 ->sortable(),
 
-            Column::make("Realizations", 'redemption_count')
+            Column::make("Realizations", 'redemptions')
                 ->sortable(),
 
             Column::make("Status", "status")
                 ->format(function ($value) {
-                    if ($value || $value == 'on' || $value == 1) {
+                    if ($value ) {
                         return __('users.active');
                     } else {
                         return __('users.notActive');
@@ -65,6 +76,9 @@ class UserTable extends DataTableComponent
 
     public function query(): \Illuminate\Database\Eloquent\Builder
     {
-        return User::query();
+        return UsersRedemptions::query()
+            ->when($this->getFilter('active'), function ($query, $active) {
+                return $query->where('status', $active === 'active');
+            });
     }
 }
