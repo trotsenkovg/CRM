@@ -81,4 +81,13 @@ class SiteUsersTable extends DataTableComponent
                 return $query->where('status', $active === 'active');
             });
     }
+
+    public function setTableDataClass(Column $column, $row): ?string
+    {
+        if ($column->column() === 'phone') {
+            return 'ltrx text-start';
+        }
+
+        return null;
+    }
 }

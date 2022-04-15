@@ -61,19 +61,19 @@
                     </li>
                     <!-- Users -->
                     <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0"
-                        :class="{ 'bg-slate-900': page.startsWith('siteUsers') }" x-data="{ open: false }"
-                        x-init="$nextTick(() => open = page.startsWith('siteUsers'))">
+                        :class="{ 'bg-slate-900': page.startsWith('siteUsers') || page.startsWith('addSiteUsers') }" x-data="{ open: false, open1: false }"
+                        x-init="$nextTick(() => open = page.startsWith('siteUsers') || page.startsWith('addSiteUsers'))">
                         <a class="block text-slate-200 hover:text-white truncate transition duration-150"
-                           :class="page.startsWith('siteUsers') && 'hover:text-slate-200'" href="#0"
+                           :class="page.startsWith('siteUsers') || page.startsWith('addSiteUsers') && 'hover:text-slate-200'"
                            @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-slate-600"
-                                              :class="page.startsWith('siteUsers') &amp;&amp; 'text-indigo-500'"
+                                              :class="open &amp;&amp; 'text-indigo-500'"
                                               d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z"></path>
                                         <path class="fill-current text-slate-400"
-                                              :class="page.startsWith('siteUsers') &amp;&amp; 'text-indigo-300'"
+                                              :class="open &amp;&amp; 'text-indigo-300'"
                                               d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z"></path>
                                     </svg>
                                     <span
@@ -97,13 +97,38 @@
                                 x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0"
                                 x-show="open"
                                 x-cloak>
-                                <li class="mb-1 last:mb-0 cursor-pointer">
+                                <li class="mb-1 last:mb-0 cursor-pointer"
+                                    x-init="$nextTick(() => open1 = page.startsWith('siteUsers') || page.startsWith('addSiteUsers'))">
                                     <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate ps-2"
-                                       :class="page === 'settings-account' && '!text-indigo-500'"
-                                       href="{{route('siteUsers')}}">
-                                        <span
-                                            class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Site users</span>
+                                       :class="{ '!text-slate-200': page.startsWith('siteUsers') || page.startsWith('addSiteUsers')}"
+                                        x-on:click="open1 = !open1"
+                                        x-cloak>
+                                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Site users</span>
                                     </a>
+                                    <ul class="ps-4 mt-1 list-disc"
+                                        x-transition:enter="transition-all ease-in-out duration-500"
+                                        x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100"
+                                        x-transition:leave="transition-all ease-in-out duration-500"
+                                        x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0"
+                                        x-show="open1"
+                                        x-cloak>
+                                        <li class="mb-1 last:mb-0 cursor-pointer">
+                                            <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate ps-2"
+                                               :class="{ '!text-slate-200': page.startsWith('siteUsers') }"
+                                               href="{{route('siteUsers')}}"
+                                               x-cloak>
+                                                <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Site users list</span>
+                                            </a>
+                                        </li>
+                                        <li class="mb-1 last:mb-0 cursor-pointer">
+                                            <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate ps-2"
+                                               :class="{ '!text-slate-200': page.startsWith('addSiteUsers') }"
+                                               href="{{route('addSiteUsers')}}"
+                                               x-cloak>
+                                                <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Create site user</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="mb-1 last:mb-0 cursor-pointer">
                                     <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate ps-2"
@@ -125,7 +150,8 @@
                     <!-- Settings -->
                     <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 cursor-pointer" x-data="{ open: false }">
                         <a class="block text-slate-200 hover:text-white truncate transition duration-150"
-                           x-on:click="open = !open">
+                           x-on:click="open = !open"
+                           x-cloak>
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">

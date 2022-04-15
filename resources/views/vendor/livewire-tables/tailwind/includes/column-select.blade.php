@@ -1,10 +1,10 @@
 @if ($columnSelect)
-    <div class="mb-4 w-full md:w-auto md:mb-0 md:ml-2">
+    <div class="mb-4 w-full md:w-auto md:mb-0 md:ms-2">
         <div
             x-data="{ open: false }"
             @keydown.window.escape="open = false"
             x-on:click.away="open = false"
-            class="inline-block relative w-full text-left md:w-auto"
+            class="inline-block relative w-full text-start md:w-auto"
         >
             <div>
                 <span class="rounded-md shadow-sm">
@@ -18,7 +18,7 @@
                     >
                         @lang('Columns')
 
-                        <svg class="-mr-1 ml-2 w-5 h-5" x-description="Heroicon name: chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <svg class="-ms-1 ms-2 w-5 h-5" x-description="Heroicon name: chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                         </svg>
                     </button>
@@ -54,7 +54,7 @@
                                             type="checkbox"
                                             value="{{ $column->column() }}"
                                         />
-                                        <span class="ml-2">{{ $column->text() }}</span>
+                                        <span class="ms-2">{{ $column->text() }}</span>
                                     </label>
                                 </div>
                             @endif

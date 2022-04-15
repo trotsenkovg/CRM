@@ -13,7 +13,7 @@
                     <button
                         wire:click="removeSort('{{ $col }}')"
                         type="button"
-                        class="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white"
+                        class="flex-shrink-0 ms-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white"
                     >
                         <span class="sr-only">@lang('Remove sort option')</span>
                         <svg class="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">

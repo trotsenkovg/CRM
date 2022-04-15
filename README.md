@@ -1,4 +1,4 @@
 TODO
-1. Add Localization
-2. Add Tables
-3. Add graphs
+1. Add Translations
+2. Add exports
+3. Change table arrows style for Hebrew

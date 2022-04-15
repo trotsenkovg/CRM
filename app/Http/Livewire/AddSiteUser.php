@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class SiteUsers extends Component
+class AddSiteUser extends Component
 {
     public function render()
     {
-        return view('livewire.users.site-users');
+        return view('livewire.users.add-site-user');
     }
 }

@@ -20,3 +20,7 @@
 @media screen and (max-width: theme('screens.lg')) {
     [x-cloak="lg"] { display: none; }
 }
+
+.ltrx {
+    direction: ltr !important;
+}

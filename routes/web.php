@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Language;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\AddSiteUser;
 use App\Http\Livewire\SiteUsers;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -38,11 +39,19 @@ Route::middleware('auth')->group(function () {
      */
     Route::get('/siteUsers', SiteUsers::class)
         ->name('siteUsers');
+    Route::get('/addSiteUsers', AddSiteUser::class)
+        ->name('addSiteUsers');
 
+    /**
+     * Logout
+     */
     Route::get('logout', LogoutController::class)
         ->name('logout');
 });
 
+/**
+ * Set language
+ */
 Route::get('/setLanguage/{locale}', function ($locale) {
     if (!in_array($locale, config('app.available_locales'))) {
         abort(404);
