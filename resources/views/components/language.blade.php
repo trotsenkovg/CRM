@@ -42,7 +42,7 @@
                     @click="selected = 0;open = false"
                     @focus="open = true"
                     @focusout="open = false"
-                    href="{{route('setLanguage', ['locale' => 'he'])}}"
+                    wire:click="setLocale('he')"
                 >
                     <svg class="shrink-0 mx-2 fill-current text-indigo-400"
                          :class="selected !== 0 && 'invisible'" width="12" height="9"
@@ -59,7 +59,7 @@
                     @click="selected = 1; open = false"
                     @focus="open = true"
                     @focusout="open = false"
-                    href="{{route('setLanguage', ['locale' => 'en'])}}"
+                    wire:click="setLocale('en')"
                 >
                     <svg class="shrink-0 mx-2 fill-current text-indigo-400"
                          :class="selected !== 1 && 'invisible'" width="12" height="9"
@@ -76,7 +76,7 @@
                     @click="selected = 2;open = false"
                     @focus="open = true"
                     @focusout="open = false"
-                    href="{{route('setLanguage', ['locale' => 'ru'])}}"
+                    wire:click="setLocale('ru')"
                 >
                     <svg class="shrink-0 mx-2 fill-current text-indigo-400"
                          :class="selected !== 2 && 'invisible'" width="12" height="9"

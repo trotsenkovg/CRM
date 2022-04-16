@@ -1,4 +1,5 @@
 require('./bootstrap');
+import data from './global';
 
-/*import data from './global';
-window.data = data;*/
+var Turbolinks = require("turbolinks")
+Turbolinks.start()

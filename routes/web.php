@@ -47,19 +47,5 @@ Route::middleware('auth')->group(function () {
      */
     Route::get('logout', LogoutController::class)
         ->name('logout');
+
 });
-
-/**
- * Set language
- */
-Route::get('/setLanguage/{locale}', function ($locale) {
-    if (!in_array($locale, config('app.available_locales'))) {
-        abort(404);
-    }
-
-    App::setLocale($locale);
-    // Session
-    session()->put('locale', $locale);
-
-    return redirect()->back();
-})->name('setLanguage');

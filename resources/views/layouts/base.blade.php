@@ -22,8 +22,8 @@
     @livewireStyles
 
     <!-- Scripts -->
-    <script src="{{ url(mix('js/vendor.js')) }}" defer></script>
-    <script src="{{ url(mix('js/app.js')) }}"></script>
+    <script src="{{ url(mix('js/app.js')) }}" defer></script>
+    {{--<script src="{{ url(mix('js/app.js')) }}"></script>--}}
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -35,10 +35,10 @@
     :class="{ 'sidebar-expanded': sidebarExpanded }"
     x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"
     dir="{{ app()->getLocale() == 'he' ? 'rtl' : 'ltr' }}"
-    x-cloak
 >
 @yield('body')
 
 @livewireScripts
+<script src="js/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </body>
 </html>
