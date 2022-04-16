@@ -65,12 +65,12 @@
                             <li>
                                 <a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
                                    href="{{ route('dashboard') }}" @click="open = false" @focus="open = true"
-                                   @focusout="open = false">Settings</a>
+                                   @focusout="open = false">@lang('auth.settings')</a>
                             </li>
                             <li>
                                 <a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
                                    href="{{ route('logout') }}" @click="open = false" @focus="open = true"
-                                   @focusout="open = false">Sign Out</a>
+                                   @focusout="open = false">@lang('auth.signOut')</a>
                             </li>
                         </ul>
                     </div>

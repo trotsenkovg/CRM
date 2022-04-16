@@ -14,7 +14,7 @@ class SiteUsersTable extends DataTableComponent
 {
     public bool $dumpFilters = false;
 
-    public string $primaryKey           = '_id';
+    public string $primaryKey           = 'clientID';
     protected string $pageName          = 'site-users';
     protected string $tableName         = 'site-users';
     public bool $singleColumnSorting    = true;
@@ -33,13 +33,13 @@ class SiteUsersTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Client ID", "clientID")
+            Column::make(__('users.siteUsersTableClientID'), "clientID")
                 ->format(function ($value) {
                     return substr($value, -7);
                 })
                 ->sortable(),
 
-            Column::make("Customer Name", "name")
+            Column::make(__('users.siteUsersTableName'), "name")
                 ->searchable(function (Builder $query, $searchTerm) {
                     $query->where('name', 'LIKE', "%$searchTerm%")
                         ->orWhere('firstName', 'LIKE', "%$searchTerm%")
@@ -47,22 +47,22 @@ class SiteUsersTable extends DataTableComponent
                 })
                 ->sortable(),
 
-            Column::make("Email", "email")
+            Column::make(__('users.siteUsersTableEmail'), "email")
                 ->searchable(function (Builder $query, $searchTerm) {
                     $query->orWhere('email', 'LIKE', "%$searchTerm%");
                 })
                 ->sortable(),
 
-            Column::make("Phone", "phone")
+            Column::make(__('users.siteUsersTablePhone'), "phone")
                 ->searchable(function (Builder $query, $searchTerm) {
                     $query->orWhere('telephone', 'LIKE', "%$searchTerm%");
                 })
                 ->sortable(),
 
-            Column::make("Realizations", 'redemptions')
+            Column::make(__('users.siteUsersTableRedemptions'), 'redemptions')
                 ->sortable(),
 
-            Column::make("Status", "status")
+            Column::make(__('users.siteUsersStatus'), "status")
                 ->format(function ($value) {
                     if ($value ) {
                         return __('users.active');

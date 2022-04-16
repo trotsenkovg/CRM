@@ -3,10 +3,10 @@ return [
     'active' => 'Active',
     'notActive' => 'Not Active',
     'any' => 'Any',
-    'siteUsers' => 'Site Users',
-    'users' => 'Users',
-    'siteUsersList' => 'Site Users List',
-    'addSiteUser' => 'Create Site User',
+    'siteUsers' => 'Пользователи сайта',
+    'users' => 'Пользователи',
+    'siteUsersList' => 'Список пользователей',
+    'addSiteUser' => 'Новый пользователь',
 
     /*Table Columns*/
     'siteUsersTableClientID' => 'Client ID',

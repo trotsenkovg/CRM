@@ -22,4 +22,6 @@ class UsersRedemptions extends Model
         'redemptions',
         'status',
     ];
+
+    protected $hidden = ['_id'];
 }

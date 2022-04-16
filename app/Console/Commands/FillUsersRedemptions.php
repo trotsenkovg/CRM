@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\User;
 use App\Models\UsersRedemptions;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class FillUsersRedemptions extends Command
@@ -45,13 +46,14 @@ class FillUsersRedemptions extends Command
             ->where('roleID', 5)
             ->chunk(2000, function ($users) use (&$data) {
                 foreach ($users as $user) {
-                    $status = false;
+
                     if (!empty($user->name)) {
                         $name = $user->name;
                     } else {
                         $name = $user->firstName . ' ' . $user->lastName;
                     }
 
+                    $status = false;
                     if ($user->status || $user->status == 'on' || $user->status == 1) {
                         $status = true;
                     }
@@ -63,8 +65,6 @@ class FillUsersRedemptions extends Command
                         'phone' => $user->telephone,
                         'redemptions' => sizeof($user->redemptions),
                         'status' => $status,
-                        'created_at' => now()->toDateTimeString(),
-                        'updated_at' => now()->toDateTimeString(),
                     ];
                 }
             });

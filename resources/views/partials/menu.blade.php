@@ -4,7 +4,7 @@
         class="fixed inset-0 bg-slate-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200"
         :class="sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'"
         aria-hidden="true"
-        x-cloak >
+        x-cloak>
 
     </div>
 
@@ -41,7 +41,7 @@
                 <h3 class="text-xs uppercase text-slate-500 font-semibold ps-3">
                     <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
                           aria-hidden="true">•••</span>
-                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Pages</span>
+                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">@lang('general.pages')</span>
                 </h3>
                 <ul class="mt-3">
                     <!-- Dashboard -->
@@ -50,18 +50,25 @@
                            :class="page === 'dashboard' && 'hover:text-slate-200'" href="{{ route('dashboard')}}">
                             <div class="flex items-center">
                                 <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                    <path class="fill-current text-slate-400" :class="page.startsWith('dashboard') && '!text-indigo-500'" d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0z" />
-                                    <path class="fill-current text-slate-600" :class="page.startsWith('dashboard') && 'text-indigo-600'" d="M12 3c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z" />
-                                    <path class="fill-current text-slate-400" :class="page.startsWith('dashboard') && 'text-indigo-200'" d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z" />
+                                    <path class="fill-current text-slate-400"
+                                          :class="page.startsWith('dashboard') && '!text-indigo-500'"
+                                          d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0z"/>
+                                    <path class="fill-current text-slate-600"
+                                          :class="page.startsWith('dashboard') && 'text-indigo-600'"
+                                          d="M12 3c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z"/>
+                                    <path class="fill-current text-slate-400"
+                                          :class="page.startsWith('dashboard') && 'text-indigo-200'"
+                                          d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z"/>
                                 </svg>
                                 <span
-                                    class="text-sm font-medium ms-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
+                                    class="text-sm font-medium ms-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">@lang('general.dashboard')</span>
                             </div>
                         </a>
                     </li>
                     <!-- Users -->
                     <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0"
-                        :class="{ 'bg-slate-900': page.startsWith('siteUsers') || page.startsWith('addSiteUsers') }" x-data="{ open: false, open1: false }"
+                        :class="{ 'bg-slate-900': page.startsWith('siteUsers') || page.startsWith('addSiteUsers') }"
+                        x-data="{ open: false, open1: false }"
                         x-init="$nextTick(() => open = page.startsWith('siteUsers') || page.startsWith('addSiteUsers'))">
                         <a class="block text-slate-200 hover:text-white truncate transition duration-150"
                            :class="page.startsWith('siteUsers') || page.startsWith('addSiteUsers') && 'hover:text-slate-200'"
@@ -77,7 +84,7 @@
                                               d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z"></path>
                                     </svg>
                                     <span
-                                        class="text-sm font-medium ms-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Users</span>
+                                        class="text-sm font-medium ms-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">@lang('users.users')</span>
                                 </div>
                                 <!-- Icon -->
                                 <div
@@ -101,15 +108,18 @@
                                     x-init="$nextTick(() => open1 = page.startsWith('siteUsers') || page.startsWith('addSiteUsers'))">
                                     <a class="block text-slate-400 hover:text-slate-200 transition duration-150 truncate ps-2"
                                        :class="{ '!text-slate-200': page.startsWith('siteUsers') || page.startsWith('addSiteUsers')}"
-                                        x-on:click="open1 = !open1"
-                                        x-cloak>
-                                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Site users</span>
+                                       x-on:click="open1 = !open1"
+                                       x-cloak>
+                                        <span
+                                            class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">@lang('users.siteUsers')</span>
                                     </a>
                                     <ul class="ps-4 mt-1 list-disc"
                                         x-transition:enter="transition-all ease-in-out duration-500"
-                                        x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100"
+                                        x-transition:enter-start="opacity-25 max-h-0"
+                                        x-transition:enter-end="opacity-100"
                                         x-transition:leave="transition-all ease-in-out duration-500"
-                                        x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0"
+                                        x-transition:leave-start="opacity-100 max-h-xl"
+                                        x-transition:leave-end="opacity-0"
                                         x-show="open1"
                                         x-cloak>
                                         <li class="mb-1 last:mb-0 cursor-pointer">
@@ -117,7 +127,8 @@
                                                :class="{ '!text-slate-200': page.startsWith('siteUsers') }"
                                                href="{{route('siteUsers')}}"
                                                x-cloak>
-                                                <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Site users list</span>
+                                                <span
+                                                    class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">@lang('users.siteUsersList')</span>
                                             </a>
                                         </li>
                                         <li class="mb-1 last:mb-0 cursor-pointer">
@@ -125,7 +136,8 @@
                                                :class="{ '!text-slate-200': page.startsWith('addSiteUsers') }"
                                                href="{{route('addSiteUsers')}}"
                                                x-cloak>
-                                                <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Create site user</span>
+                                                <span
+                                                    class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">@lang('users.addSiteUser')</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -204,7 +216,12 @@
             <div class="px-3 py-2">
                 <button @click="sidebarExpanded = !sidebarExpanded">
                     <span class="sr-only">Expand / collapse sidebar</span>
-                    <svg class="w-6 h-6 fill-current sidebar-expanded:rotate-180" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"
+                         @if(app()->getLocale() == 'he')
+                            :class="!sidebarExpanded && 'rotate-180'">
+                         @else
+                            :class="sidebarExpanded && 'rotate-180'">
+                         @endif
                         <path class="text-slate-400"
                               d="M19.586 11l-5-5L16 4.586 23.414 12 16 19.414 14.586 18l5-5H7v-2z"/>
                         <path class="text-slate-600" d="M3 23H1V1h2z"/>
