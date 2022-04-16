@@ -9,10 +9,8 @@ data = function () {
             switch (lang) {
                 case 'he':
                     return 0;
-
                 case 'en':
                     return 1;
-
                 case 'ru':
                     return 2;
 

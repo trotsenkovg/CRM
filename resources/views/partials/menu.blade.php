@@ -4,7 +4,8 @@
         class="fixed inset-0 bg-slate-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200"
         :class="sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'"
         aria-hidden="true"
-        x-cloak>
+        x-cloak
+        >
 
     </div>
 
@@ -43,9 +44,9 @@
                           aria-hidden="true">•••</span>
                     <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">@lang('general.pages')</span>
                 </h3>
-                <ul class="mt-3">
+                <ul x-cloak class="mt-3">
                     <!-- Dashboard -->
-                    <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0" :class="page === 'dashboard' && 'bg-slate-900'">
+                    <li x-cloak class="px-3 py-2 rounded-sm mb-0.5 last:mb-0" :class="page === 'dashboard' && 'bg-slate-900'">
                         <a class="block text-slate-200 hover:text-white truncate transition duration-150"
                            :class="page === 'dashboard' && 'hover:text-slate-200'" href="{{ route('dashboard')}}">
                             <div class="flex items-center">
@@ -66,7 +67,7 @@
                         </a>
                     </li>
                     <!-- Users -->
-                    <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0"
+                    <li x-cloak class="px-3 py-2 rounded-sm mb-0.5 last:mb-0"
                         :class="{ 'bg-slate-900': page.startsWith('siteUsers') || page.startsWith('addSiteUsers') }"
                         x-data="{ open: false, open1: false }"
                         x-init="$nextTick(() => open = page.startsWith('siteUsers') || page.startsWith('addSiteUsers'))">
@@ -160,7 +161,7 @@
                         </div>
                     </li>
                     <!-- Settings -->
-                    <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 cursor-pointer" x-data="{ open: false }">
+                    <li x-cloak class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 cursor-pointer" x-data="{ open: false }">
                         <a class="block text-slate-200 hover:text-white truncate transition duration-150"
                            x-on:click="open = !open"
                            x-cloak>
@@ -212,7 +213,7 @@
         </div>
 
         <!-- Expand / collapse button -->
-        <div class="pt-3 hidden lg:inline-flex 2xl:hidden justify-end mt-auto">
+        <div class="pt-3 hidden lg:inline-flex 2xl:hidden justify-end mt-auto" x-cloak="lg">
             <div class="px-3 py-2">
                 <button @click="sidebarExpanded = !sidebarExpanded">
                     <span class="sr-only">Expand / collapse sidebar</span>

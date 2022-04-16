@@ -3,6 +3,7 @@
     <div class="relative inline-flex ml-5"
          x-data="{open: false, selected: ''}"
          x-init="selected = getLanguageNumber('{{app()->getLocale()}}')"
+         x-cloak
     >
         <button
             x-ref="options"
@@ -11,6 +12,7 @@
             aria-haspopup="true"
             @click.prevent="open = !open"
             :aria-expanded="open"
+            x-cloak
         >
                                         <span class="flex items-center">
                                             <span
@@ -42,6 +44,7 @@
                     @click="selected = 0;open = false"
                     @focus="open = true"
                     @focusout="open = false"
+                    x-cloak
                     wire:click="setLocale('he')"
                 >
                     <svg class="shrink-0 mx-2 fill-current text-indigo-400"
@@ -59,6 +62,7 @@
                     @click="selected = 1; open = false"
                     @focus="open = true"
                     @focusout="open = false"
+                    x-cloak
                     wire:click="setLocale('en')"
                 >
                     <svg class="shrink-0 mx-2 fill-current text-indigo-400"
@@ -76,6 +80,7 @@
                     @click="selected = 2;open = false"
                     @focus="open = true"
                     @focusout="open = false"
+                    x-cloak
                     wire:click="setLocale('ru')"
                 >
                     <svg class="shrink-0 mx-2 fill-current text-indigo-400"

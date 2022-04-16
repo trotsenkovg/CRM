@@ -35,6 +35,7 @@
     :class="{ 'sidebar-expanded': sidebarExpanded }"
     x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"
     dir="{{ app()->getLocale() == 'he' ? 'rtl' : 'ltr' }}"
+    x-cloak="lg"
 >
 @yield('body')
 
