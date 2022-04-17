@@ -1,5 +1,7 @@
+const custom = require('tailwindcss/plugin');
 
 module.exports = {
+    darkMode: 'class',
     theme: {
         extend: {
             boxShadow: {
@@ -59,9 +61,15 @@ module.exports = {
         './resources/**/*.php',
         './resources/**/*.vue',
         './resources/**/*.twig',
+        './vendor/rappasoft/laravel-livewire-tables/resources/views/tailwind/**/*.blade.php',
     ],
     plugins: [
         require('@tailwindcss/forms'),
         require('tailwindcss-rtl'),
+        custom(({ addVariant, e }) => {
+            addVariant('sidebar-expanded', ({ modifySelectors, separator }) => {
+                modifySelectors(({ className }) => `.sidebar-expanded .${e(`sidebar-expanded${separator}${className}`)}`);
+            });
+        }),
     ],
 };

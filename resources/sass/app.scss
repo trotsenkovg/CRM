@@ -13,10 +13,21 @@
 @tailwind utilities;
 
 // See Alpine.js: https://github.com/alpinejs/alpine#x-cloak
-[x-cloak=""] {
-    display: none;
+[x-cloak] {
+    display: none !important;
 }
 
 @media screen and (max-width: theme('screens.lg')) {
-    [x-cloak="lg"] { display: none; }
+    [x-cloak="lg"] { display: none !important; }
+}
+
+.ltrx {
+    direction: ltr !important;
+}
+
+[dir='rtl'] .translate-s-64 {
+    --tw-translate-x: 16rem;
+}
+[dir='ltr'] .translate-s-64 {
+    --tw-translate-x: -16rem;
 }

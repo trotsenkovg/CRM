@@ -239,7 +239,7 @@
                 background-color: #2779bd;
             }
 
-            .bg-indigo-light {
+            .bg-orange-light {
                 background-color: #7886d7;
             }
 
