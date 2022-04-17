@@ -15,6 +15,7 @@ data = function () {
                     return 2;
 
             }
-        }
+        },
+
     }
 }

@@ -39,15 +39,15 @@
             <div class="font-medium text-sm text-slate-600" x-ref="options">
                 <a
                     tabindex="0"
-                    class="flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer"
-                    :class="selected === 0 && 'text-indigo-500'"
+                    class="flex items-center w-full hover:bg-orange-50 py-1 px-3 cursor-pointer"
+                    :class="selected === 0 && 'text-slate-500'"
                     @click="selected = 0;open = false"
                     @focus="open = true"
                     @focusout="open = false"
                     x-cloak
                     wire:click="setLocale('he')"
                 >
-                    <svg class="shrink-0 mx-2 fill-current text-indigo-400"
+                    <svg class="shrink-0 mx-2 fill-current text-slate-400"
                          :class="selected !== 0 && 'invisible'" width="12" height="9"
                          viewBox="0 0 12 9">
                         <path
@@ -57,15 +57,15 @@
                 </a>
                 <a
                     tabindex="0"
-                    class="flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer"
-                    :class="selected === 1 && 'text-indigo-500'"
+                    class="flex items-center w-full hover:bg-orange-50 py-1 px-3 cursor-pointer"
+                    :class="selected === 1 && 'text-slate-900'"
                     @click="selected = 1; open = false"
                     @focus="open = true"
                     @focusout="open = false"
                     x-cloak
                     wire:click="setLocale('en')"
                 >
-                    <svg class="shrink-0 mx-2 fill-current text-indigo-400"
+                    <svg class="shrink-0 mx-2 fill-current text-slate-400"
                          :class="selected !== 1 && 'invisible'" width="12" height="9"
                          viewBox="0 0 12 9">
                         <path
@@ -75,15 +75,15 @@
                 </a>
                 <a
                     tabindex="0"
-                    class="flex items-center w-full hover:bg-slate-50 py-1 px-3 cursor-pointer"
-                    :class="selected === 2 && 'text-indigo-500'"
+                    class="flex items-center w-full hover:bg-orange-50 py-1 px-3 cursor-pointer"
+                    :class="selected === 2 && 'text-slate-500'"
                     @click="selected = 2;open = false"
                     @focus="open = true"
                     @focusout="open = false"
                     x-cloak
                     wire:click="setLocale('ru')"
                 >
-                    <svg class="shrink-0 mx-2 fill-current text-indigo-400"
+                    <svg class="shrink-0 mx-2 fill-current text-slate-400"
                          :class="selected !== 2 && 'invisible'" width="12" height="9"
                          viewBox="0 0 12 9">
                         <path

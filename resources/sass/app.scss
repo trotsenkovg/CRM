@@ -24,3 +24,10 @@
 .ltrx {
     direction: ltr !important;
 }
+
+[dir='rtl'] .translate-s-64 {
+    --tw-translate-x: 16rem;
+}
+[dir='ltr'] .translate-s-64 {
+    --tw-translate-x: -16rem;
+}

@@ -1,8 +1,10 @@
 @extends('layouts.base')
 
 @section('body')
-    <div class="flex h-screen overflow-hidden">
-        @include('partials.menu')
+    <div class="flex h-screen overflow-hidden"
+        x-data="{ sidebarOpen: false }"
+        x-cloak>
+        <livewire:components.menu-component />
         <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
             <livewire:components.header-component />
             <main>

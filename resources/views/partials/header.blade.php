@@ -10,6 +10,7 @@
                     @click.stop="sidebarOpen = !sidebarOpen"
                     aria-controls="sidebar"
                     :aria-expanded="sidebarOpen"
+                    x-cloak
                 >
                     <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <rect x="4" y="5" width="16" height="2"/>
@@ -36,10 +37,10 @@
                         @click.prevent="open = !open"
                         :aria-expanded="open"
                     >
-                        <div class="flex items-center truncate">
+                        <div class="flex items-center truncate ">
                             <span
-                                class="truncate ms-2 text-sm font-medium group-hover:text-slate-800">{{ auth()->user()->name }}</span>
-                            <svg class="w-3 h-3 shrink-0 ms-1 fill-current text-slate-400" viewBox="0 0 12 12">
+                                class="truncate ms-2 text-sm text-slate-900 font-medium group-hover:text-orange-900">{{ auth()->user()->name }}</span>
+                            <svg class="w-3 h-3 shrink-0 ms-1 fill-slate text-slate-400" viewBox="0 0 12 12">
                                 <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z"/>
                             </svg>
                         </div>
@@ -63,12 +64,12 @@
                         </div>
                         <ul>
                             <li>
-                                <a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
+                                <a class="font-medium text-sm text-slate-900 hover:text-slate-600 flex items-center py-1 px-3"
                                    href="{{ route('dashboard') }}" @click="open = false" @focus="open = true"
                                    @focusout="open = false">@lang('auth.settings')</a>
                             </li>
                             <li>
-                                <a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
+                                <a class="font-medium text-sm text-slate-900 hover:text-slate-600 flex items-center py-1 px-3"
                                    href="{{ route('logout') }}" @click="open = false" @focus="open = true"
                                    @focusout="open = false">@lang('auth.signOut')</a>
                             </li>

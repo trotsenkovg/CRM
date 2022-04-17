@@ -39,8 +39,22 @@ Route::middleware('auth')->group(function () {
      */
     Route::get('/siteUsers', SiteUsers::class)
         ->name('siteUsers');
-    Route::get('/addSiteUsers', AddSiteUser::class)
-        ->name('addSiteUsers');
+    Route::get('/addSiteUser', AddSiteUser::class)
+        ->name('addSiteUser');
+    Route::get('/providerUsers', SiteUsers::class)
+        ->name('providerUsers');
+    Route::get('/addProviderUser', AddSiteUser::class)
+        ->name('addProviderUser');
+    Route::get('/chipperUsers', SiteUsers::class)
+        ->name('chipperUsers');
+    Route::get('/addChipperUser', AddSiteUser::class)
+        ->name('addChipperUser');
+
+    /**
+     * Settings
+     */
+    Route::get('/accountSettings', AddSiteUser::class)
+        ->name('accountSettings');
 
     /**
      * Logout

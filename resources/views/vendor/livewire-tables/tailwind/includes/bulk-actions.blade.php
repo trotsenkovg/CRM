@@ -11,7 +11,7 @@
                     <button
                         x-on:click="open = !open"
                         type="button"
-                        class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
+                        class="inline-flex justify-center w-full rounded-md border border-slate-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-orange-700 hover:bg-slate-50 focus:border-slate-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 dark:bg-slate-700 dark:text-white dark:border-slate-600 dark:hover:bg-slate-600"
                         aria-haspopup="true"
                         x-bind:aria-expanded="open"
                         aria-expanded="true"
@@ -34,16 +34,16 @@
                 x-transition:leave="transition ease-in duration-75"
                 x-transition:leave-start="transform opacity-100 scale-100"
                 x-transition:leave-end="transform opacity-0 scale-95"
-                class="origin-top-right absolute right-0 mt-2 w-full md:w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-50"
+                class="origin-top-right absolute right-0 mt-2 w-full md:w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-slate-100 focus:outline-none z-50"
             >
-                <div class="rounded-md bg-white shadow-xs dark:bg-gray-700 dark:text-white">
+                <div class="rounded-md bg-white shadow-xs dark:bg-slate-700 dark:text-white">
                     <div class="py-1" role="menu" aria-orientation="vertical">
                         @foreach($this->bulkActions as $action => $title)
                             <button
                                 wire:click="{{ $action }}"
                                 wire:key="bulk-action-{{ $action }}"
                                 type="button"
-                                class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 flex items-center space-x-2 dark:text-white dark:hover:bg-gray-600"
+                                class="block w-full px-4 py-2 text-sm leading-5 text-orange-700 hover:bg-slate-100 hover:text-orange-900 focus:outline-none focus:bg-slate-100 focus:text-orange-900 flex items-center space-x-2 dark:text-white dark:hover:bg-slate-600"
                                 role="menuitem"
                             >
                                 <span>{{ $title }}</span>

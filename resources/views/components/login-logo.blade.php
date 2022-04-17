@@ -1,4 +1,4 @@
-<div class="logo-login bg-indigo-600 shadow">
+<div class="logo-login bg-orange-600 shadow">
     <svg width="132" viewBox="0 0 96 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <title>{{ config('app.name') }}</title>
         <g clip-path="url(#clip0)">

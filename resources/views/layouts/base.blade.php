@@ -30,13 +30,9 @@
 </head>
 
 <body
-    class="font-inter antialiased bg-slate-100 text-slate-600"
-    x-data="{ page: '{{ Request::path() }}', sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true' }"
-    :class="{ 'sidebar-expanded': sidebarExpanded }"
-    x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"
+    class="font-inter antialiased bg-slate-100 text-orange-600"
     dir="{{ app()->getLocale() == 'he' ? 'rtl' : 'ltr' }}"
-    x-cloak="lg"
->
+    x-cloak>
 @yield('body')
 
 @livewireScripts

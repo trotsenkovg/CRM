@@ -16,7 +16,7 @@
                     <input
                         wire:model="selectPage"
                         type="checkbox"
-                        class="rounded border-gray-300 text-indigo-600 shadow-sm transition duration-150 ease-in-out focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-900 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 dark:focus:bg-gray-600"
+                        class="rounded border-slate-300 text-orange-600 shadow-sm transition duration-150 ease-in-out focus:border-slate-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 dark:bg-slate-900 dark:text-white dark:border-slate-600 dark:hover:bg-slate-600 dark:focus:bg-slate-600"
                     />
                 </div>
             </x-livewire-tables::table.heading>
@@ -46,7 +46,7 @@
     @if ($secondaryHeader)
         <x-slot name="customSecondaryHead">
             <x-livewire-tables::table.row
-                wire:loading.class.delay="opacity-50 dark:bg-gray-900 dark:opacity-60"
+                wire:loading.class.delay="opacity-50 dark:bg-slate-900 dark:opacity-60"
                 :class="method_exists($this, 'setSecondaryHeaderRowClass') ? ' ' . $this->setSecondaryHeaderRowClass($rows) : ''"
                 :id="method_exists($this, 'setSecondaryHeaderRowId') ? $this->setSecondaryHeaderRowId($rows) : ''"
                 :customAttributes="method_exists($this, 'setSecondaryHeaderRowAttributes') ? $this->setSecondaryHeaderRowAttributes($rows) : []"
@@ -95,7 +95,7 @@
 
         @forelse ($rows as $index => $row)
             <x-livewire-tables::table.row
-                wire:loading.class.delay="opacity-50 dark:bg-gray-900 dark:opacity-60"
+                wire:loading.class.delay="opacity-50 dark:bg-slate-900 dark:opacity-60"
                 wire:key="table-row-{{ md5(mt_rand()) }}-{{ $row->{$this->parseField($primaryKey)} }}"
                 wire:sortable.item="{{ $row->{$primaryKey} }}"
                 :reordering="$reordering"
@@ -104,9 +104,9 @@
                 :wireclick="method_exists($this, 'getTableRowWireClick') ? $this->getTableRowWireClick($row) : ''"
                 :class="
                     ($index % 2 === 0 ?
-                    'bg-white dark:bg-gray-700 dark:text-white' . (method_exists($this, 'getTableRowUrl') ? ' hover:bg-gray-100' : '') :
-                    'bg-gray-50 dark:bg-gray-800 dark:text-white') .
-                    (method_exists($this, 'getTableRowUrl') ? ' hover:bg-gray-100 dark:hover:bg-gray-900 transition' : '') .
+                    'bg-white dark:bg-slate-700 dark:text-white' . (method_exists($this, 'getTableRowUrl') ? ' hover:bg-slate-100' : '') :
+                    'bg-slate-50 dark:bg-slate-800 dark:text-white') .
+                    (method_exists($this, 'getTableRowUrl') ? ' hover:bg-slate-100 dark:hover:bg-slate-900 transition' : '') .
                     (method_exists($this, 'setTableRowClass') ? ' ' . $this->setTableRowClass($row) : '')
                 "
                 :id="method_exists($this, 'setTableRowId') ? $this->setTableRowId($row) : ''"
@@ -129,7 +129,7 @@
                                 value="{{ $row->{$this->parseField($primaryKey)} }}"
                                 onclick="event.stopPropagation();return true;"
                                 type="checkbox"
-                                class="rounded border-gray-300 text-indigo-600 shadow-sm transition duration-150 ease-in-out focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-900 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 dark:focus:bg-gray-600"
+                                class="rounded border-slate-300 text-orange-600 shadow-sm transition duration-150 ease-in-out focus:border-slate-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 dark:bg-slate-900 dark:text-white dark:border-slate-600 dark:hover:bg-slate-600 dark:focus:bg-slate-600"
                             />
                         </div>
                     </x-livewire-tables::table.cell>
@@ -139,13 +139,13 @@
             </x-livewire-tables::table.row>
         @empty
             <x-livewire-tables::table.row>
-                <x-livewire-tables::table.cell :colspan="$colspan" class="dark:bg-gray-800">
-                    <div class="flex justify-center items-center space-x-2 dark:bg-gray-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <x-livewire-tables::table.cell :colspan="$colspan" class="dark:bg-slate-800">
+                    <div class="flex justify-center items-center space-x-2 dark:bg-slate-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                         </svg>
 
-                        <span class="font-medium py-8 text-gray-400 text-xl dark:text-white">@lang($emptyMessage)</span>
+                        <span class="font-medium py-8 text-orange-400 text-xl dark:text-white">@lang($emptyMessage)</span>
                     </div>
                 </x-livewire-tables::table.cell>
             </x-livewire-tables::table.row>
@@ -155,7 +155,7 @@
     @if ($customFooter)
         <x-slot name="foot">
             <x-livewire-tables::table.row
-                wire:loading.class.delay="opacity-50 dark:bg-gray-900 dark:opacity-60"
+                wire:loading.class.delay="opacity-50 dark:bg-slate-900 dark:opacity-60"
                 :class="method_exists($this, 'setFooterRowClass') ? ' ' . $this->setFooterRowClass($rows) : ''"
                 :id="method_exists($this, 'setFooterRowId') ? $this->setFooterRowId($rows) : ''"
                 :customAttributes="method_exists($this, 'setFooterRowAttributes') ? $this->setFooterRowAttributes($rows) : []"
