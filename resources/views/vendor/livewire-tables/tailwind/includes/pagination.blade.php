@@ -3,7 +3,7 @@
         @if ($paginationEnabled && $rows->lastPage() > 1)
             {{ $rows->links('livewire-tables::tailwind.includes.partials.pagination') }}
         @else
-            <p class="text-sm text-orange-900 leading-5 dark:text-white">
+            <p class="text-sm text-slate-900 leading-5 dark:text-white">
                 @lang('Showing')
                 <span class="font-medium">{{ $rows->count() }}</span>
                 @lang('results')

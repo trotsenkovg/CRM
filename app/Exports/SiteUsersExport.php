@@ -12,8 +12,6 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class SiteUsersExport implements FromCollection, WithHeadings
 {
-
-
     /**
     * @return \Illuminate\Support\Collection
      */

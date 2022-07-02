@@ -8,7 +8,7 @@
         <div>
             <button
                 type="button"
-                class="lg:mr-2 inline-flex justify-center w-full rounded-md border border-slate-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-orange-700 hover:bg-slate-50 focus:border-slate-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 dark:bg-slate-700 dark:text-white dark:border-slate-600 dark:hover:bg-slate-600"
+                class="lg:mr-2 inline-flex justify-center w-full rounded-md border border-slate-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 dark:bg-slate-700 dark:text-white dark:border-slate-600 dark:hover:bg-slate-600"
                 x-on:click="open = !open"
                 aria-haspopup="true"
                 x-bind:aria-expanded="open"
@@ -17,7 +17,7 @@
                 @lang('Filters')
 
                 @if (count($this->getFiltersWithoutSearch()))
-                    <span class="ms-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-orange-100 text-orange-800 capitalize dark:bg-orange-200 dark:text-orange-900">
+                    <span class="ms-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-slate-100 text-slate-800 capitalize dark:bg-slate-200 dark:text-slate-900">
                        {{ count($this->getFiltersWithoutSearch()) }}
                     </span>
                 @endif
@@ -48,9 +48,9 @@
             @elseif (count($customFilters))
                 @foreach ($customFilters as $key => $filter)
                     <div class="py-1" role="none">
-                        <div class="block px-4 py-2 text-sm text-orange-700 dark:text-white" role="menuitem">
+                        <div class="block px-4 py-2 text-sm text-slate-700 dark:text-white" role="menuitem">
                             <label for="filter-{{ $key }}"
-                                   class="block text-sm font-medium leading-5 text-orange-700 dark:text-white">
+                                   class="block text-sm font-medium leading-5 text-slate-700 dark:text-white">
                                 {{ $filter->name() }}
                             </label>
 
@@ -70,12 +70,12 @@
 
             @if (count($this->getFiltersWithoutSearch()))
                 <div class="py-1" role="none">
-                    <div class="block px-4 py-2 text-sm text-orange-700 dark:text-white" role="menuitem">
+                    <div class="block px-4 py-2 text-sm text-slate-700 dark:text-white" role="menuitem">
                         <button
                             wire:click.prevent="resetFilters"
                             x-on:click="open = false"
                             type="button"
-                            class="w-full inline-flex items-center justify-center px-3 py-2 border border-slate-300 shadow-sm text-sm leading-4 font-medium rounded-md text-orange-700 bg-white hover:bg-slate-50 focus:border-slate-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 dark:bg-slate-800 dark:border-slate-600 dark:text-white dark:hover:border-slate-500"
+                            class="w-full inline-flex items-center justify-center px-3 py-2 border border-slate-300 shadow-sm text-sm leading-4 font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 dark:bg-slate-800 dark:border-slate-600 dark:text-white dark:hover:border-slate-500"
                         >
                             @lang('Clear')
                         </button>

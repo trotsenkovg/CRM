@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Eloquent\Model;
-
-class UsersRedemptions extends Model
+class UsersRedemptions extends MongoModel
 {
     protected $connection = 'mongodb';
     protected $table = 'users_redemptions';

@@ -7,17 +7,16 @@ use Livewire\Component;
 
 class MenuComponent extends Component
 {
-
     public array $links;
     public string $page;
 
     public function mount()
     {
-        $this->page = Request::path();
-        $this->links = $this->getMenu();
+        $this->page     = Request::path();
+        $this->links    = $this->formatMenuArrayForHTML();
     }
 
-    protected function getMenu(): array
+    protected function formatMenuArrayForHTML(): array
     {
         $data = [];
         foreach ($this->getMenuLinks() as $key => $value) {
@@ -152,6 +151,6 @@ class MenuComponent extends Component
 
     public function render()
     {
-        return view('partials.menu');
+        return view('livewire.components.menu');
     }
 }

@@ -18,11 +18,11 @@
     }
 
     input[type="checkbox"] {
-    
+
         &:checked {
 
             + label {
-                @apply bg-indigo-500;
+                @apply bg-green-500;
 
                 > span:first-child {
                     left: 22px;
@@ -38,7 +38,7 @@
                 > span:first-child {
                     @apply bg-slate-400;
                 }
-            }            
+            }
         }
     }
 }

@@ -35,15 +35,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected $appends = ['redemptions_count'];
-
     public function redemptions()
     {
         return $this->hasMany(CouponRedemption::class, 'redempted_by', '_id');
-    }
-
-    public function getRedemptionsCountAttribute()
-    {
-        return $this->redemptions->count();
     }
 }

@@ -5,13 +5,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="turbolinks-cache-control" content="no-cache">
     @hasSection('title')
         <title>@yield('title')</title>
     @else
         <title>{{ config('app.name') }}</title>
     @endif
 
-<!-- Favicon -->
+    <!-- Favicon -->
     <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
     <!-- Fonts -->

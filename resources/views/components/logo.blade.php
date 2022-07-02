@@ -1,5 +1,5 @@
-<div class="logo-login bg-transparent shadow">
-    <svg class="2xl:h-14 sm:h-14 fill-orange-500 hover:fill-orange-300" viewBox="0 0 96 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<div class="logo-login bg-slate-900 shadow-lg shadow-orange-500/50 rounded-md hover:shadow-orange-300/50">
+    <svg class="2xl:h-14 sm:h-14 fill-orange-500 " viewBox="0 0 96 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <title>{{ config('app.name') }}</title>
         <g clip-path="url(#clip0)">
             <path

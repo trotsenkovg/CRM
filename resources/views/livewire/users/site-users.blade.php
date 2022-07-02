@@ -5,14 +5,14 @@
     <div class="sm:flex sm:justify-between sm:items-center mb-8">
         <!-- Left: Title -->
         <div class="mb-4 sm:mb-0">
-            <h1 class="text-2xl md:text-3xl text-slate-900 font-bold">@lang('users.siteUsers')</h1>
+            <h1 class="text-2xl md:text-3xl text-slate-900 font-bold italic">@lang('users.siteUsers')</h1>
         </div>
 
         <!-- Right: Actions -->
         <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
             <button wire:click="export" wire:loading.attr="disabled" class="disabled:bg-orange-600 disabled:cursor-progress btn bg-orange-500 hover:bg-orange-600 text-white">
                 <x-button-loader target="export"/>
-                <span class="hidden xs:block">Download site Users</span>
+                <span class="hidden xs:block">@lang('users.downloadSite')</span>
             </button>
             <!-- Add customer button -->
             <a class="btn bg-orange-500 hover:bg-orange-600 text-white" href="{{ route('addSiteUser') }}">

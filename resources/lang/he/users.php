@@ -7,6 +7,7 @@ return [
     'users' => 'משתמשים',
     'siteUsersList' => 'רשימת לקוחות אתר',
     'addSiteUser' => 'יצירת לקוח אתר',
+    'downloadSite' => 'הורד רשימת לקוחות אתר',
 
     /*Table Columns*/
     'siteUsersTableClientID' => 'מזהה לקוח',

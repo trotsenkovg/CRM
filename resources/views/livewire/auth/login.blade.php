@@ -18,7 +18,7 @@
 
                     <div class="mt-1 rounded-md shadow-sm">
                         <input wire:model.lazy="email" id="email" name="email" type="email" required autofocus
-                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror"/>
+                               class="text-slate-900 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror"/>
                     </div>
 
                     @error('email')
@@ -33,7 +33,7 @@
 
                     <div class="mt-1 rounded-md shadow-sm">
                         <input wire:model.lazy="password" id="password" type="password" required
-                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('password') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror"/>
+                               class="text-slate-900 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('password') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror"/>
                     </div>
 
                     @error('password')
@@ -44,7 +44,7 @@
                 <div class="flex items-center justify-between mt-6">
                     <div class="flex items-center">
                         <input wire:model.lazy="remember" id="remember" type="checkbox"
-                               class="form-checkbox w-4 h-4 text-slate-600 transition duration-150 ease-in-out"/>
+                               class="form-checkbox w-4 h-4 text-orange-600 transition duration-150 ease-in-out"/>
                         <label for="remember" class="block ms-2 text-sm text-gray-900 leading-5">
                             Remember
                         </label>

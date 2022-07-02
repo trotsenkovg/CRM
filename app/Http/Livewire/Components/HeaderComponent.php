@@ -22,6 +22,6 @@ class HeaderComponent extends Component
 
     public function render()
     {
-        return view('partials.header');
+        return view('livewire.components.header');
     }
 }

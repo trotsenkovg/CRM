@@ -39,7 +39,7 @@
 
             <div class="hidden md:flex-1 md:flex md:items-center md:justify-between">
                 <div>
-                    <p class="text-sm text-orange-900 leading-5 dark:text-white">
+                    <p class="text-sm text-slate-900 leading-5 dark:text-white">
                         <span>{!! __('Showing') !!}</span>
                         <span class="font-medium">{{ $paginator->firstItem() }}</span>
                         <span>{!! __('to') !!}</span>
@@ -127,12 +127,12 @@
                                         @if ($page == $paginator->currentPage())
                                             <span aria-current="page">
                                                 <span
-                                                    class="relative inline-flex items-center px-4 py-2 -ms-px text-sm font-medium text-orange-500 bg-white border border-slate-300 cursor-default leading-5 dark:bg-slate-500 dark:text-white dark:border-slate-500">{{ $page }}</span>
+                                                    class="relative inline-flex items-center px-4 py-2 -ms-px text-sm font-medium text-orange-500 bg-white border border-orange-300 cursor-default leading-5 dark:bg-slate-500 dark:text-white dark:border-slate-500">{{ $page }}</span>
                                             </span>
                                         @else
                                             <button type="button"
                                                     wire:click="gotoPage({{ $page }}, '{{ $paginator->getPageName() }}')"
-                                                    class="relative inline-flex items-center px-4 py-2 -ms-px text-sm font-medium text-orange-700 bg-white border border-slate-300 leading-5 hover:text-orange-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-slate-100 active:text-orange-700 transition ease-in-out duration-150 dark:bg-slate-700 dark:text-white dark:ring-slate-600 dark:border-slate-600 dark:hover:bg-slate-600"
+                                                    class="relative inline-flex items-center px-4 py-2 -ms-px text-sm font-medium text-slate-700 bg-white border border-slate-300 leading-5 hover:text-orange-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-slate-100 active:text-orange-700 transition ease-in-out duration-150 dark:bg-slate-700 dark:text-white dark:ring-slate-600 dark:border-slate-600 dark:hover:bg-slate-600"
                                                     aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
                                                 {{ $page }}
                                             </button>

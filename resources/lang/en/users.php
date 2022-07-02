@@ -7,6 +7,7 @@ return [
     'users' => 'Users',
     'siteUsersList' => 'Site Users List',
     'addSiteUser' => 'Create Site User',
+    'downloadSite' => 'Download Site Users',
 
     /*Table Columns*/
     'siteUsersTableClientID' => 'Client ID',

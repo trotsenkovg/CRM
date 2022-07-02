@@ -62,6 +62,7 @@ module.exports = {
         './resources/**/*.vue',
         './resources/**/*.twig',
         './vendor/rappasoft/laravel-livewire-tables/resources/views/tailwind/**/*.blade.php',
+        "./node_modules/flowbite/**/*.js",
     ],
     plugins: [
         require('@tailwindcss/forms'),

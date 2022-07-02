@@ -3,21 +3,19 @@
     <div
         class="fixed inset-0 bg-orange-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200"
         :class="sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'"
-        aria-hidden="true"
-        x-cloak>
+        aria-hidden="true">
     </div>
 
     <!-- Sidebar -->
     <div
         id="sidebar"
-        class="flex flex-col absolute z-40 start-0 top-0 lg:static lg:start-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-slate-800 p-4 transition-all duration-200 ease-in-out"
+        class="flex p-4 flex-col absolute z-40 start-0 top-0 lg:static lg:start-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-slate-800 transition-all duration-200 ease-in-out"
         :class="sidebarOpen ? 'translate-x-0' : `{{app()->getLocale() == 'he' ? 'translate-x-64' : '-translate-x-64'}}`"
         @click.outside="sidebarOpen = false"
-        @keydown.escape.window="sidebarOpen = false"
-        x-cloak>
+        @keydown.escape.window="sidebarOpen = false">
 
         <!-- Sidebar header -->
-        <div class="flex mb-10 ps-3 sm:px-2 justify-center">
+        <div class="mb-10">
             <!-- Close button -->
             <button class="lg:hidden text-orange-500 hover:text-orange-400" @click.stop="sidebarOpen = !sidebarOpen"
                     :class="`{{app()->getLocale() == 'he'}}` && 'rotate-180'"
@@ -36,17 +34,11 @@
         <!-- Links -->
         <div class="space-y-8">
             <div>
-                <h3 class="text-xs uppercase text-orange-500 font-semibold ps-3">
-                    <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6"
-                          aria-hidden="true">•••</span>
-                    <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">@lang('general.pages')</span>
-                </h3>
-                <ul class="mt-3"
-                    x-cloak>
+                <ul>
                     @foreach($links as $link)
-                        <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-slate-900 cursor-pointer rounded"
+                        <li class="px-3 py-2 rounded-md mb-0.5 last:mb-0 cursor-pointer rounded-md"
                             x-data="{ open: `{{$link['open']}}` }"
-                            :class="`{{$link['open']}}` && ''">
+                            :class="`{{$link['open']}}` && 'bg-slate-900'">
                             <a class="block text-orange-400 hover:text-orange-200"
                                :class="`{{$link['open']}}` && '!text-orange-50'"
                                @if(!empty($link['route'])) href="{{ route($link['route'])}} @endif"

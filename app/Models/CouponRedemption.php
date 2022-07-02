@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Eloquent\Model;
-
-class CouponRedemption extends Model
+class CouponRedemption extends MongoModel
 {
     protected $connection = 'mongodb';
     protected $table = 'coupon_redemptions';
